@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Obsidian & Champagne — a private-bank restraint: one neutral near-black,
+   one warm ivory, one muted accent used with a dropper, hairlines instead
+   of shadows, no gradients, no glow. */
+@theme {
+  --color-bg: #0b0c0e;
+  --color-panel: #121316;
+  --color-panel-2: #16171b;
+  --color-ink: #f5f1e8;
+  --color-ink-dim: #a9a499;
+  --color-ink-mute: #6e6a61;
+  --color-champagne: #c9a961;
+  --color-champagne-dim: #8a7a56;
+  --color-hairline: #f5f1e81a;
+
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
