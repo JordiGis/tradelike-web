@@ -10,7 +10,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-2xl px-6 pt-24 pb-28 text-center sm:px-8 sm:pt-32 sm:pb-32">
         <Reveal>
           <img
-            src="/icon.png"
+            src={`${import.meta.env.BASE_URL}icon.png`}
             alt="Icono de Tradelike"
             className="mx-auto mb-8 h-14 w-14 rounded-md border border-[var(--color-hairline)] sm:mb-10 sm:h-16 sm:w-16"
           />

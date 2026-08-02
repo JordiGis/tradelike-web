@@ -1,10 +1,12 @@
 import { Reveal } from "./Reveal";
 
+const base = import.meta.env.BASE_URL;
+
 const SHOTS = [
-  { src: "/screenshots/mainmenu.png", caption: "Menú de inicio" },
-  { src: "/screenshots/desk.png", caption: "La mesa" },
-  { src: "/screenshots/difficulty.png", caption: "Escalera de dificultad" },
-  { src: "/screenshots/favors.png", caption: "Tienda de Favores" },
+  { src: `${base}screenshots/mainmenu.png`, caption: "Menú de inicio" },
+  { src: `${base}screenshots/desk.png`, caption: "La mesa" },
+  { src: `${base}screenshots/difficulty.png`, caption: "Escalera de dificultad" },
+  { src: `${base}screenshots/favors.png`, caption: "Tienda de Favores" },
 ];
 
 export function Preview() {
