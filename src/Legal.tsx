@@ -3,10 +3,6 @@ import { Nav } from "./components/Nav";
 import { CandleField } from "./components/CandleField";
 import { Footer } from "./components/Footer";
 
-function Fill({ children }: { children: string }) {
-  return <span className="text-champagne">{children}</span>;
-}
-
 function Section({ n, title, children }: { n: string; title: string; children: ReactNode }) {
   return (
     <section className="border-t border-[var(--color-hairline)] py-10">
@@ -30,17 +26,10 @@ export function Legal() {
         <p className="eyebrow mb-5">Legal</p>
         <h1 className="font-display text-4xl font-medium text-ink">Política de privacidad</h1>
         <p className="mt-3 text-xs tracking-wide text-ink-mute">
-          Última actualización: <Fill>[FECHA]</Fill>
+          Última actualización: 2 de agosto de 2026
         </p>
 
-        <div className="my-10 border border-[var(--color-hairline)] p-6 text-xs leading-relaxed text-ink-mute">
-          <span className="text-ink-dim">Borrador pendiente de revisión.</span> Los fragmentos en{" "}
-          <span className="text-champagne">color</span> son datos reales que faltan por confirmar
-          antes de publicar esta página. No sustituye asesoría legal — revísala con alguien
-          cualificado antes de ir a producción si tienes dudas sobre algún punto.
-        </div>
-
-        <p className="text-sm leading-relaxed font-light text-ink-dim">
+        <p className="mt-10 text-sm leading-relaxed font-light text-ink-dim">
           Esta política explica qué datos trata la aplicación <span className="text-ink">Tradelike</span> (en
           adelante, «la app»), disponible en Google Play, y los motivos por los que se tratan.
           Aplica el Reglamento General de Protección de Datos de la UE (RGPD/GDPR) y la normativa
@@ -49,9 +38,12 @@ export function Legal() {
 
         <Section n="01" title="Responsable del tratamiento">
           <p>
-            <Fill>[NOMBRE O RAZÓN SOCIAL]</Fill>, con domicilio en <Fill>[PAÍS / CIUDAD]</Fill>, es
-            responsable del tratamiento de los datos descritos en esta política. Contacto para
-            cualquier consulta o para ejercer tus derechos: <Fill>[EMAIL DE CONTACTO]</Fill>.
+            Jordi Gisbert Ferriz, con domicilio en España, es responsable del tratamiento de los
+            datos descritos en esta política. Contacto para cualquier consulta o para ejercer tus
+            derechos:{" "}
+            <a className="text-champagne hover:underline" href="mailto:hola@jordigis.dev">
+              hola@jordigis.dev
+            </a>.
           </p>
         </Section>
 
@@ -79,18 +71,21 @@ export function Legal() {
         </Section>
 
         <Section n="03" title="Proveedores de terceros">
-          <p>Los siguientes servicios pueden procesar datos en nombre propio, según sus propias políticas de privacidad:</p>
+          <p>El siguiente servicio procesa datos en nombre propio, según su propia política de privacidad:</p>
           <ul className="list-disc space-y-1.5 pl-5">
             <li>
-              <span className="text-ink">Google AdMob</span> — servicio de anuncios.{" "}
+              <span className="text-ink">Google AdMob</span> — servicio de anuncios, con su
+              plataforma de gestión del consentimiento (UMP) para usuarios en la UE/Reino Unido.{" "}
               <a className="text-champagne hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">
                 Política de privacidad de Google
               </a>
             </li>
-            <li><span className="text-ink">Google User Messaging Platform (UMP)</span> — gestión del consentimiento de anuncios en la UE/Reino Unido.</li>
-            <li><Fill>[MEDIACIÓN DE ANUNCIOS SI APLICA — p. ej. AppLovin MAX]</Fill></li>
-            <li><Fill>[ANALÍTICA/CRASH REPORTING SI APLICA — p. ej. Firebase]</Fill></li>
           </ul>
+          <p>
+            Esta lista se ampliará si en el futuro se añade una red de mediación publicitaria o
+            un servicio de analítica — la fecha de la última actualización, arriba, refleja
+            cuándo cambió por última vez.
+          </p>
         </Section>
 
         <Section n="04" title="Finalidad y base legal">
@@ -107,9 +102,12 @@ export function Legal() {
         <Section n="05" title="Tus derechos">
           <p>
             Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, supresión,
-            oposición, limitación y portabilidad escribiendo a <Fill>[EMAIL DE CONTACTO]</Fill>.
-            También puedes retirar el consentimiento de anuncios personalizados desde el propio
-            mensaje de consentimiento que muestra la app, o presentar una reclamación ante la{" "}
+            oposición, limitación y portabilidad escribiendo a{" "}
+            <a className="text-champagne hover:underline" href="mailto:hola@jordigis.dev">
+              hola@jordigis.dev
+            </a>. También puedes retirar el consentimiento de anuncios personalizados desde el
+            propio mensaje de consentimiento que muestra la app, o presentar una reclamación ante
+            la{" "}
             <a className="text-champagne hover:underline" href="https://www.aepd.es/" target="_blank" rel="noopener">
               Agencia Española de Protección de Datos
             </a>.
@@ -126,15 +124,15 @@ export function Legal() {
 
         <Section n="07" title="Transferencias internacionales">
           <p>
-            Los proveedores mencionados en el punto 3 pueden procesar datos fuera del Espacio
-            Económico Europeo. En esos casos se apoyan en las Cláusulas Contractuales Tipo de la
+            El proveedor mencionado en el punto 3 puede procesar datos fuera del Espacio
+            Económico Europeo. En esos casos se apoya en las Cláusulas Contractuales Tipo de la
             Comisión Europea u otro mecanismo de transferencia válido conforme al RGPD.
           </p>
         </Section>
 
         <Section n="08" title="Conservación">
           <p>
-            Los identificadores de publicidad se conservan el tiempo que determine cada proveedor
+            Los identificadores de publicidad se conservan el tiempo que determine el proveedor
             conforme a sus propias políticas; la app no mantiene un servidor propio ni una base
             de datos propia de usuarios.
           </p>
