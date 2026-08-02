@@ -12,7 +12,7 @@ export function Hero() {
           <img
             src={`${import.meta.env.BASE_URL}icon.png`}
             alt="Icono de Tradelike"
-            className="mx-auto mb-8 h-14 w-14 rounded-md border border-[var(--color-hairline)] sm:mb-10 sm:h-16 sm:w-16"
+            className="mx-auto mb-8 h-24 w-24 rounded-xl border border-[var(--color-hairline)] sm:mb-10 sm:h-28 sm:w-28"
           />
         </Reveal>
 
