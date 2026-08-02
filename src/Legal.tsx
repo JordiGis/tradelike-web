@@ -43,7 +43,12 @@ export function Legal() {
             derechos:{" "}
             <a className="text-champagne hover:underline" href="mailto:hola@jordigis.dev">
               hola@jordigis.dev
-            </a>.
+            </a>{" "}
+            o{" "}
+            <a className="text-champagne hover:underline" href="mailto:jota.gvg@gmail.com">
+              jota.gvg@gmail.com
+            </a>{" "}
+            (cuenta de desarrollador de Google Play).
           </p>
         </Section>
 
@@ -105,6 +110,10 @@ export function Legal() {
             oposición, limitación y portabilidad escribiendo a{" "}
             <a className="text-champagne hover:underline" href="mailto:hola@jordigis.dev">
               hola@jordigis.dev
+            </a>{" "}
+            o{" "}
+            <a className="text-champagne hover:underline" href="mailto:jota.gvg@gmail.com">
+              jota.gvg@gmail.com
             </a>. También puedes retirar el consentimiento de anuncios personalizados desde el
             propio mensaje de consentimiento que muestra la app, o presentar una reclamación ante
             la{" "}
