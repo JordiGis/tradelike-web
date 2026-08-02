@@ -21,8 +21,12 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={140}>
-          <h1 className="font-display text-4xl leading-[1.05] font-medium tracking-tight text-ink sm:text-6xl">
-            Tradelike
+          <h1 className="mx-auto">
+            <img
+              src={`${import.meta.env.BASE_URL}wordmark.png`}
+              alt="Tradelike"
+              className="mx-auto h-10 w-auto sm:h-14"
+            />
           </h1>
         </Reveal>
 
