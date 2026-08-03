@@ -5,6 +5,7 @@ import { Preview } from "./components/Preview";
 import { Features } from "./components/Features";
 import { Plazas } from "./components/Plazas";
 import { Footer } from "./components/Footer";
+import { AdSlot } from "./components/AdSlot";
 
 // No `bg-bg` here: a solid background on this wrapper paints *above* a
 // fixed, negative-z-index descendant once it escapes to the root stacking
@@ -21,6 +22,9 @@ export function App() {
         <Preview />
         <Features />
         <Plazas />
+        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+          <AdSlot />
+        </div>
         <Footer />
       </div>
     </div>

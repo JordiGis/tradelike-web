@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ads en tradelike-web — qué falta</title>
+<style>
+  :root { color-scheme: dark light; }
+  body {
+    max-width: 720px; margin: 0 auto; padding: 48px 24px 96px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.55; background: #0b0c0e; color: #f5f1e8;
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 0.2em; }
+  h2 { font-size: 1.1rem; margin-top: 2.2em; border-top: 1px solid #f5f1e81a; padding-top: 1em; }
+  code { background: #16171b; padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; }
+  pre { background: #16171b; padding: 12px 16px; border-radius: 8px; overflow-x: auto; }
+  .done { border-left: 3px solid #6b9a6b; padding-left: 14px; margin: 1em 0; }
+  .todo { border-left: 3px solid #c9a961; padding-left: 14px; margin: 1em 0; }
+  .file { color: #c9a961; }
+  .sub { color: #a9a499; font-size: 0.9rem; }
+  ol, ul { padding-left: 1.3em; }
+  li { margin: 0.3em 0; }
+</style>
+</head>
+<body>
+
+<h1>Ads en tradelike-web</h1>
+<p class="sub">Landing con ads (Google AdSense) · Legal sin ads · escrito 2026-08-03</p>
+
+<h2>✅ Ya hecho</h2>
+<div class="done">
+<ul>
+<li><span class="file">src/components/AdSlot.tsx</span> — el hueco de anuncio. No renderiza nada
+hasta que hay consentimiento <em>y</em> hay client/slot id configurados — así en dev o sin
+consentimiento no rompe nada.</li>
+<li><span class="file">src/hooks/useAdConsent.ts</span> + <span class="file">src/components/ConsentBanner.tsx</span>
+— banner de consentimiento (Aceptar/Rechazar), persistido en <code>localStorage</code>. El script
+de AdSense no se carga hasta aceptar — obligatorio por RGPD.</li>
+<li><span class="file">src/App.tsx</span> — banner y hueco de anuncio ya montados (entre Plazas y Footer).
+<span class="file">Legal.tsx</span> no se toca.</li>
+<li><span class="file">.env.example</span> — plantilla con <code>VITE_ADSENSE_CLIENT_ID</code> /
+<code>VITE_ADSENSE_SLOT_ID</code>.</li>
+<li><span class="file">public/ads.txt</span> — placeholder con el formato correcto, falta tu id real.</li>
+</ul>
+</div>
+
+<h2>🔲 Lo que solo puedes hacer tú</h2>
+
+<div class="todo">
+<strong>1. Cuenta de Google AdSense</strong>
+<p>En <code>adsense.google.com</code>, con tu cuenta de Google. Pide verificar el dominio
+<code>tradelike.jordigis.dev</code>. Necesita identidad real (no vale cuenta anónima) y suele tardar
+de días a un par de semanas en aprobar — Google revisa el sitio a mano.</p>
+</div>
+
+<div class="todo">
+<strong>2. Contenido suficiente antes de pedir revisión</strong>
+<p>AdSense rechaza sitios con poco contenido propio. Una landing de una sola pantalla puede no
+bastar — si rebota, añadir un par de páginas más (ficha de la app, capturas, FAQ) antes de reintentar.</p>
+</div>
+
+<div class="todo">
+<strong>3. Verificar el dominio</strong>
+<p>AdSense te da un snippet <code>&lt;meta&gt;</code> o un archivo a colgar en <code>public/</code>.
+Te lo darán en el paso de alta — pégamelo o dime el valor y lo cableo.</p>
+</div>
+
+<div class="todo">
+<strong>4. Sacar el Publisher ID y el Ad Slot ID</strong>
+<p>Una vez aprobado: Anuncios → Por unidad de anuncio → crea una unidad "display responsive".
+Te da:</p>
+<ul>
+<li><code>ca-pub-XXXXXXXXXXXXXXXX</code> — tu Publisher ID (el <code>client</code>)</li>
+<li>un slot id de 10 dígitos — el <code>data-ad-slot</code></li>
+</ul>
+<p>Ponlos en un <code>.env.local</code> (ya gitignored) copiando <code>.env.example</code>, y sustituye
+el <code>pub-XXXXXXXXXXXXXXXX</code> de <code>public/ads.txt</code> por el real. Sin esto el hueco de
+anuncio sigue invisible — es a propósito, no hay nada roto que arreglar.</p>
+</div>
+
+<div class="todo">
+<strong>5. Decidir la red / el modelo</strong>
+<p>Monté esto contra AdSense porque es la puerta de entrada estándar y no pide app propia ni
+tráfico mínimo. Si prefieres otra cosa (Ezoic, Carbon Ads para algo más "dev", o esperar a tener
+tráfico y vender directo) dímelo — el <code>AdSlot</code> cambia de sitio, no de forma.</p>
+</div>
+
+<div class="todo">
+<strong>6. Confirmar el texto legal</strong>
+<p><span class="file">src/Legal.tsx</span> ahora mismo describe <strong>AdMob</strong> (la app de
+Android), no ads web. Si vas a servir AdSense en la web, esa página necesita una sección — o una
+página nueva — que cubra específicamente el tratamiento de datos en <code>tradelike-web</code>.
+No la he tocado porque cambia el alcance de un documento legal, y eso lo firmas tú, no yo.</p>
+</div>
+
+<h2>Cómo probarlo cuando tengas los ids</h2>
+<pre><code>cp .env.example .env.local
+# edita .env.local con tus valores reales
+npm run dev</code></pre>
+<p class="sub">Acepta el banner de consentimiento — el hueco de anuncio solo aparece después.
+En local, AdSense normalmente muestra anuncios en blanco o de prueba hasta que el dominio de
+producción está verificado y sirviendo tráfico real.</p>
+
+</body>
+</html>
